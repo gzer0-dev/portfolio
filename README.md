@@ -1,6 +1,6 @@
 # Portfolio
 
-転職候補先向けの自己紹介サイト。
+自己紹介サイト。
 
 **Live:** https://gzer0-dev.github.io/portfolio/
 
