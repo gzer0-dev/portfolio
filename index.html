@@ -3,187 +3,217 @@
 
 <head>
   <meta charset="UTF-8">
-  
-  <title>Portfolio</title>
-  
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/lib/css/all.css">
-  <link rel="stylesheet" href="js/lib/vs2015.css">
-  
-  <script src="js/lib/highlight.pack.js"></script>
-  <script src="js/lib/jquery-3.4.1.min.js"></script>
-  <script src="js/lib/skrollr.js"></script>
-  <script src="js/script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go Itayama — Test Automation Engineer</title>
+  <meta name="description" content="テスト自動化エンジニア Go Itayama のポートフォリオ。25本以上のWebゲーム・アプリを企画から公開まで個人開発。機械検証・TDDを軸にした開発文化が強みです。">
+
+  <meta property="og:title" content="Go Itayama — Portfolio">
+  <meta property="og:description" content="テスト自動化 × 個人開発で25本以上を公開。機械検証・TDDを軸にしたポートフォリオ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gzer0-dev.github.io/portfolio/">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/script.js" defer></script>
 </head>
 
 <body>
-  <div id="home">
-    <div class="activity_bar">
-      <dl>
-        <dt id="select_icon"><i class="far fa-copy"></i></dt>
-        <dt id="icon"><i class="fas fa-search"></i></dt>
-        <dt id="icon"><i class="fas fa-code-branch"></i></dt>
-        <dt id="icon"><i class="fas fa-bug" id="debug"></i></dt>
-        <dt id="icon"><i class="fas fa-th-large"></i></dt>
-        <dt id="icon"><i class="fas fa-flask"></i></dt>
-        <dt id="icon"><i class="far fa-file-code"></i></dt>
-      </dl>
-    </div>
-    
-    <div class="setting">
-      <dl>
-        <dt id="icon"><i class="fas fa-cog"></i></dt>
-      </dl>
-    </div>
-    
-    <div class="side_bar">
-      <dl>
-        <dt><i class="fas fa-angle-down"></i> OPEN EDITORS</dt>
-        <dd class="file current"><i class="fab fa-python" id="python"></i>portfolio.py</dd>
+  <header class="site-header">
+    <nav class="container nav">
+      <a class="brand" href="#top"><span class="brand-mark">&gt;_</span> Go Itayama</a>
+      <div class="nav-links">
+        <a href="#works">Works</a>
+        <a href="#practice">Practice</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" type="button" aria-label="テーマ切り替え">◐</button>
+      </div>
+    </nav>
+  </header>
 
-        <dt><i class="fas fa-angle-down"></i> PORTFOLIO</dt>
-        <dd><i class="fas fa-angle-down"></i>home</dd>
-        <dd class="file current"><i class="fab fa-python" id="python"></i>portfolio.py</dd>
-
-        <dd><i class="fas fa-angle-down"></i>works</dd>
-        <dd class="file"><a href="https://g0-I.github.io/NumberTouchGame/" target="_blank"><i class="fas fa-gamepad"
-              id="game"></i>数字当てゲーム</a></dd>
-
-        <dd><i class="fas fa-angle-down"></i>blog</dd>
-        <dd class="file"><a href="https://qiita.com/g0-I" target="_blank"　rel="noopener noreferrer"><i class="fas fa-search"
-              id="qiita"></i>Qiita</a></dd>
-
-        <dd><i class="fas fa-angle-down"></i>skills</a></dd>
-        <dd class="file"><i class="fab fa-python" id="python"></i>Python</a></dd>
-        <dd class="file"><i class="fab fa-js-square" id="javascript"></i>JavaScript</a></dd>
-        <dd class="file"><i class="fab fa-java" id="java"></i>Java</a></dd>
-        <dd class="file"><i class="fab fa-php" id="php"></i>PHP</a></dd>
-        <dd class="file"><i class="fab fa-html5" id="html5"></i>HTML5</a></dd>
-        <dd class="file"><i class="fab fa-css3-alt" id="css3"></i>CSS3</a></dd>
-
-        <dd><i class="fas fa-angle-down"></i>contact</a></dd>
-        <dd class="file">
-          <a href="https://twitter.com/g04160" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-twitter" id="twitter"></i>twitter</a>
-        </dd>
-        <dd class="file">
-          <a href="https://connpass.com/user/0k1ta/" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa fa-american-sign-language-interpreting" id="conpass"></i>connpass</a>
-        </dd>
-      </dl>
-    </div>
-
-    <div class="main" data-11000>
-      <div class="tabs">
-        <div class="tab">
-          <i class="fab fa-python" id="python"></i> portfolio.py　<i class="fas fa-times" id="close"></i>
-          </span>
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero container">
+      <div class="hero-text">
+        <p class="eyebrow">Test Automation Engineer / Indie Developer</p>
+        <h1>品質を<span class="accent">機械で証明</span>しながら、<br>作って、出す。</h1>
+        <p class="lead">
+          テスト自動化エンジニアとして働きながら、個人開発で
+          <strong>25本以上のWebゲーム・アプリを企画からリリースまで一人で完遂</strong>してきました。
+          ただ作るだけでなく、「レベルが必ず解けることのBFS証明」「決定論シミュレーションによるバランス検証」など、
+          <strong>品質を自動テストで保証してから出荷する</strong>のが私の開発スタイルです。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#works">作品を見る</a>
+          <a class="btn ghost" href="https://github.com/gzer0-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
-      <div class="current_directory">
-        home　<i class="fas fa-angle-right"></i>　<i class="fab fa-python" id="python"></i> portfolio.py
+
+      <div class="code-card" aria-hidden="true">
+        <div class="code-card-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="code-card-title">portfolio.py</span>
+        </div>
+<pre><code><span class="kw">class</span> <span class="cls">Engineer</span>:
+    name     = <span class="str">"Go Itayama"</span>
+    role     = <span class="str">"Test Automation Engineer"</span>
+    shipped  = <span class="num">25</span>  <span class="cm"># web games &amp; apps, solo</span>
+    policy   = [
+        <span class="str">"prove it with tests"</span>,
+        <span class="str">"ship small, ship often"</span>,
+    ]
+
+<span class="kw">assert</span> Engineer.shipped &gt; <span class="num">0</span>  <span class="cm"># always verified ✅</span></code></pre>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats container reveal">
+      <div class="stat"><span class="stat-num">25+</span><span class="stat-label">個人開発で公開した<br>Webゲーム・アプリ</span></div>
+      <div class="stat"><span class="stat-num">180+</span><span class="stat-label">1プロジェクトあたりの<br>最大自動テスト数</span></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">実戦投入している言語<br>(TS / Python / GDScript / Dart / C# / Rust)</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">公開前に機械検証を<br>通したプロジェクト</span></div>
+    </section>
+
+    <!-- Works -->
+    <section id="works" class="section container">
+      <h2><span class="section-no">01</span> Selected Works</h2>
+      <p class="section-desc">すべて企画・設計・実装・アセット・検証・デプロイまで一人で担当。ブラウザでそのまま遊べます。</p>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-head">
+            <h3>マモニワ!!</h3><span class="badge">PixiJS / TypeScript</span>
+          </div>
+          <p>防衛×食物連鎖のビオトープシミュレーション。生態系の捕食関係をデータ駆動で設計し、章キャンペーン・図鑑・日英対応まで実装。Tauri によるデスクトップ(Steam)版も構築。</p>
+          <ul class="tags"><li>生態系シミュ</li><li>Tauri</li><li>i18n</li></ul>
+          <a class="card-link" href="https://mamo-niwa.pages.dev/" target="_blank" rel="noopener noreferrer">遊んでみる →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-head">
+            <h3>ハイゴウ!!</h3><span class="badge">PixiJS / TypeScript</span>
+          </div>
+          <p>モンスター配合育成ローグライト。<strong>全56種のモンスターに到達可能であることをBFSで機械証明</strong>し、詰み状態が存在しないことをCIで保証。モンスターの絵は手続き生成。</p>
+          <ul class="tags"><li>BFS到達性証明</li><li>手続き生成</li></ul>
+          <a class="card-link" href="https://hai-gou.pages.dev/" target="_blank" rel="noopener noreferrer">遊んでみる →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-head">
+            <h3>コトダマ</h3><span class="badge">PixiJS / TypeScript</span>
+          </div>
+          <p>動詞を持ち替えて解くグリッドパズル。<strong>全ステージの可解性をBFSソルバーで証明</strong>してから収録。デイリーパズルも生成時に自動検証され、解けない問題は出荷されない仕組み。</p>
+          <ul class="tags"><li>BFSソルバー</li><li>デイリー生成</li></ul>
+          <a class="card-link" href="https://kotodama-puzzle.pages.dev/" target="_blank" rel="noopener noreferrer">遊んでみる →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-head">
+            <h3>ケロホップ</h3><span class="badge">three.js / TypeScript</span>
+          </div>
+          <p>Crossy Road系の3Dアクション。3Dモデルはすべてコードによるプロシージャル生成で、外部アセット不使用。レーン生成は常に前進可能であることを検証済み。</p>
+          <ul class="tags"><li>3D</li><li>プロシージャルモデル</li></ul>
+          <a class="card-link" href="https://kero-hop.pages.dev/" target="_blank" rel="noopener noreferrer">遊んでみる →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-head">
+            <h3>バイタマ</h3><span class="badge">自前物理 / TypeScript</span>
+          </div>
+          <p>パチンコ×ローグライクスコアアタック。<strong>固定タイムステップの物理エンジンを自作</strong>し、同じシードなら全プレイヤーで同一結果になる決定論デイリーチャレンジを実現。</p>
+          <ul class="tags"><li>決定論物理</li><li>自作エンジン</li></ul>
+          <a class="card-link" href="https://bai-tama.pages.dev/" target="_blank" rel="noopener noreferrer">遊んでみる →</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-head">
+            <h3>資格試験対策PWA群</h3><span class="badge">Next.js / React</span>
+          </div>
+          <p>簿記2級・3級、宅建、危険物乙4など6アプリを共通テンプレートから量産。設定ファイル+問題JSONだけで新アプリが完成する構成にし、データ整合性チェックもCIに組込み。</p>
+          <ul class="tags"><li>PWA</li><li>テンプレート設計</li></ul>
+          <a class="card-link" href="https://boki3-drill.pages.dev/" target="_blank" rel="noopener noreferrer">簿記3級ドリルを見る →</a>
+        </article>
       </div>
 
-      <div class="body">
-        <div class="lines">
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
-          <p>6</p>
-          <p>7</p>
-          <p>8</p>
-          <p>9</p>
-          <p>10</p>
-          <p>11</p>
-          <p>12</p>
-          <p>13</p>
-          <p>14</p>
-          <p>15</p>
-          <p>16</p>
-          <p>17</p>
-          <p>18</p>
-          <p>19</p>
-          <p>20</p>
-          <p>21</p>
-          <p>22</p>
-          <p>23</p>
-          <p>24</p>
-          <p>25</p>
-          <p>26</p>
-          <p>27</p>
-          <p>28</p>
-          <p>29</p>
-          <p>30</p>
-          <p>31</p>
-          <p>32</p>
-          <p>33</p>
-          <p>34</p>
-          <p>35</p>
-          <p>36</p>
-          <p>37</p>
-          <p>38</p>
-          <p>39</p>
-          <p>40</p>
+      <p class="more-link reveal">全作品は <a href="https://bayfront-arcade.pages.dev/" target="_blank" rel="noopener noreferrer">Bayfront Arcade（ポータルサイト）</a> にまとめています。Godot / Unity / Flutter でのSteam・モバイル向け開発も進行中です。</p>
+    </section>
+
+    <!-- Practice -->
+    <section id="practice" class="section container alt">
+      <h2><span class="section-no">02</span> Engineering Practice</h2>
+      <p class="section-desc">「動いているように見える」ではなく「動くことが証明されている」状態で出荷するための開発規律です。</p>
+
+      <div class="practice-grid">
+        <div class="practice reveal">
+          <h3>🧪 テストファースト (TDD)</h3>
+          <p>Red → Green → Refactor を厳守。失敗するテストなしにプロダクションコードを書きません。構造的変更と振る舞いの変更をコミットで分離する Tidy First も実践しています。</p>
         </div>
-        <pre><code id="comment">"""
-Web browser recommended 
-Please scroll!
-"""</code>
-
-<code id="code">from datetime import date
-
-class Human:
-  def __init__(self):
-    self.name = ''
-    self.age = 0
-    self.gender = ''
-    self.job = ''
-
-  def calculate_age(self, year, month, day):
-    birth = date(year, month, day)
-    today = date.today()
-    age = today.year - birth.year
-    if (today.month, today.day) < (birth.month, birth.day):
-      age -= 1
-    return age 
-  
-me = Human()
-me.name = 'Go Itayama'
-me.age = me.calculate_age(1991, 6, 14)
-me.gender = 'men'
-me.job = 'Test Automation Engineer'
-
-print('Nice to meet you')
-        </code>
-       </pre>
+        <div class="practice reveal">
+          <h3>🔐 可解性・バランスの機械証明</h3>
+          <p>パズルの可解性はBFSソルバーで、ゲームバランスは数千回のボットシミュレーションで検証。「正確に解くほうが雑にやるより強い」といった設計意図そのものをテストとして固定します。</p>
+        </div>
+        <div class="practice reveal">
+          <h3>🔁 決定論とシード管理</h3>
+          <p>物理・乱数・アセット生成をシード決定論で構築し、同一入力→同一出力を保証。バグ再現・デイリーチャレンジ・生成AIのバイト一致検証まで、決定論を品質基盤として使います。</p>
+        </div>
+        <div class="practice reveal">
+          <h3>🚦 検証ラダー</h3>
+          <p>Static（存在・スタブ検出）→ Command（テスト・ビルド）→ Behavioral（実URL・実操作）→ Human の4段階で、到達可能な最強の検証ティアを常に選択。「入力→状態遷移」を検証するUI進行テストでソフトロックを機械検出します。</p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div id="status_bar">
-      <div class="editor_foot">
-        <div class="float_left">
-          <i class="fas fa-code-branch"></i> master*　<i class="fas fa-sync"></i>
-          <span>　Python 3.7.0 64-bit　</span>
-          <span><i class="far fa-times-circle"></i> 0</span>
-          <span><i class="fas fa-exclamation-triangle"></i> 0</span>
+    <!-- Skills -->
+    <section id="skills" class="section container">
+      <h2><span class="section-no">03</span> Skills</h2>
+
+      <div class="skill-groups">
+        <div class="skill-group reveal">
+          <h3>Languages</h3>
+          <ul class="chips">
+            <li>TypeScript</li><li>Python</li><li>GDScript</li><li>Dart</li><li>C#</li><li>Rust</li><li>JavaScript</li>
+          </ul>
         </div>
-        
-        <div class="float_right">
-          <span> Ln <span id="line-num">0</span>,　Col <span id="col-num">0</span>　</span>
-          <span>Spaces: 2　</span>
-          <span class="charset">UTF-8</span>
-          <span>LF　Python　<i class="fas fa-chalkboard-teacher"></i>　</span>
-          <span><i class="far fa-bell"></i></span>
+        <div class="skill-group reveal">
+          <h3>Game / Frontend</h3>
+          <ul class="chips">
+            <li>PixiJS</li><li>three.js</li><li>Godot 4</li><li>Unity</li><li>Flutter / Flame</li><li>Next.js / React</li><li>PWA</li><li>Tauri</li>
+          </ul>
         </div>
-        
+        <div class="skill-group reveal">
+          <h3>Quality / Automation</h3>
+          <ul class="chips">
+            <li>Vitest</li><li>Playwright</li><li>TDD</li><li>CI (GitHub Actions)</li><li>ボットシミュレーション</li><li>BFSソルバー検証</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Infra / Tools</h3>
+          <ul class="chips">
+            <li>Cloudflare Pages / Workers</li><li>Vite</li><li>Git / GitHub</li><li>ComfyUI + SDXL（ローカル生成AI）</li><li>uv</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-  <script>
-    const s = skrollr.init();
-  </script>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container alt">
+      <h2><span class="section-no">04</span> Contact</h2>
+      <p class="section-desc">お気軽にご連絡ください。</p>
+      <div class="contact-links reveal">
+        <a class="btn primary" href="https://github.com/gzer0-dev" target="_blank" rel="noopener noreferrer">GitHub — gzer0-dev</a>
+        <a class="btn ghost" href="https://bayfront-arcade.pages.dev/" target="_blank" rel="noopener noreferrer">作品ポータル — Bayfront Arcade</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">© 2026 Go Itayama — Built with vanilla HTML/CSS/JS, no frameworks.</p>
+  </footer>
 </body>
 
 </html>
