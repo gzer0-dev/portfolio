@@ -54,6 +54,7 @@ body {
   font-family: "Inter", "Noto Sans JP", -apple-system, sans-serif;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* ヒーローの背景ブロブが画面外にはみ出すため */
 }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -74,6 +75,11 @@ a:hover { text-decoration: underline; }
 .brand { font-weight: 800; color: var(--text); letter-spacing: 0.02em; }
 .brand:hover { text-decoration: none; }
 .brand-mark { color: var(--accent); font-family: "JetBrains Mono", monospace; }
+.brand-mark::after {
+  content: "▍"; font-size: 0.85em;
+  animation: cursor-blink 1.1s steps(1) infinite;
+}
+@keyframes cursor-blink { 50% { opacity: 0; } }
 
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a { color: var(--text-sub); font-size: 0.92rem; font-weight: 500; }
@@ -90,6 +96,28 @@ a:hover { text-decoration: underline; }
 .hero {
   display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px;
   align-items: center; padding-top: 88px; padding-bottom: 72px;
+  position: relative;
+}
+
+/* ヒーロー背景をゆっくり漂う光のブロブ（低opacity・本文の後ろ） */
+.hero::before,
+.hero::after {
+  content: ""; position: absolute; z-index: -1; border-radius: 50%;
+  filter: blur(70px); opacity: 0.16; pointer-events: none;
+}
+.hero::before {
+  width: 420px; height: 420px; top: -60px; left: -120px;
+  background: var(--accent);
+  animation: blob-drift 16s ease-in-out infinite alternate;
+}
+.hero::after {
+  width: 340px; height: 340px; bottom: -80px; right: -60px;
+  background: #7c6cf0;
+  animation: blob-drift 20s ease-in-out infinite alternate-reverse;
+}
+@keyframes blob-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(60px, 40px) scale(1.15); }
 }
 
 .eyebrow {
@@ -132,6 +160,27 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
 .dot { width: 11px; height: 11px; border-radius: 50%; }
 .dot.red { background: #ff5f57; } .dot.yellow { background: #febc2e; } .dot.green { background: #28c840; }
 .code-card-title { margin-left: 8px; color: #8a97a8; font-size: 0.8rem; font-family: "JetBrains Mono", monospace; }
+
+#run-btn {
+  margin-left: auto; cursor: pointer;
+  background: rgba(45, 212, 191, 0.12); color: #2dd4bf;
+  border: 1px solid rgba(45, 212, 191, 0.4); border-radius: 6px;
+  padding: 3px 12px; font-family: "JetBrains Mono", monospace; font-size: 0.72rem;
+  transition: background 0.2s, transform 0.1s;
+}
+#run-btn:hover { background: rgba(45, 212, 191, 0.25); }
+#run-btn:active { transform: scale(0.95); }
+
+.run-output {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 14px 20px; margin: 0;
+  font-family: "JetBrains Mono", monospace; font-size: 0.75rem; line-height: 1.7;
+  color: #aeb9c8; white-space: pre-wrap;
+}
+.out-cmd { color: #d7e0ec; }
+.out-dim { color: #6b7889; }
+.out-pass { color: #4ade80; font-weight: 600; }
+.out-hello { color: #2dd4bf; font-weight: 600; }
 
 .code-card pre {
   padding: 20px; overflow-x: auto;
@@ -260,6 +309,7 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
+  .hero::before, .hero::after, .brand-mark::after { animation: none; }
 }
 
 /* ===== Responsive ===== */

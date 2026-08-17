@@ -53,10 +53,11 @@
         </div>
       </div>
 
-      <div class="code-card" aria-hidden="true">
+      <div class="code-card">
         <div class="code-card-bar">
           <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
           <span class="code-card-title">portfolio.py</span>
+          <button id="run-btn" type="button" title="portfolio.py を実行">▶ Run</button>
         </div>
 <pre><code><span class="kw">class</span> <span class="cls">Engineer</span>:
     name     = <span class="str">"Go Itayama"</span>
@@ -68,15 +69,16 @@
     ]
 
 <span class="kw">assert</span> Engineer.shipped &gt; <span class="num">0</span>  <span class="cm"># always verified ✅</span></code></pre>
+        <pre id="run-output" class="run-output" aria-live="polite" hidden></pre>
       </div>
     </section>
 
     <!-- Stats -->
     <section class="stats container reveal">
-      <div class="stat"><span class="stat-num">25+</span><span class="stat-label">個人開発で公開した<br>Webゲーム・アプリ</span></div>
-      <div class="stat"><span class="stat-num">180+</span><span class="stat-label">1プロジェクトあたりの<br>最大自動テスト数</span></div>
-      <div class="stat"><span class="stat-num">6</span><span class="stat-label">実戦投入している言語<br>(TS / Python / GDScript / Dart / C# / Rust)</span></div>
-      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">公開前に機械検証を<br>通したプロジェクト</span></div>
+      <div class="stat"><span class="stat-num" data-count="25" data-suffix="+">25+</span><span class="stat-label">個人開発で公開した<br>Webゲーム・アプリ</span></div>
+      <div class="stat"><span class="stat-num" data-count="180" data-suffix="+">180+</span><span class="stat-label">1プロジェクトあたりの<br>最大自動テスト数</span></div>
+      <div class="stat"><span class="stat-num" data-count="6" data-suffix="">6</span><span class="stat-label">実戦投入している言語<br>(TS / Python / GDScript / Dart / C# / Rust)</span></div>
+      <div class="stat"><span class="stat-num" data-count="100" data-suffix="%">100%</span><span class="stat-label">公開前に機械検証を<br>通したプロジェクト</span></div>
     </section>
 
     <!-- Works -->
