@@ -153,6 +153,16 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
   background: var(--code-bg); border-radius: 14px; box-shadow: var(--shadow);
   overflow: hidden; border: 1px solid var(--border);
 }
+/* ロゴクリックで Run するとき、視線をコードカードへ誘導する光のパルス */
+.code-card.card-glow { animation: card-glow 1.4s ease; }
+@keyframes card-glow {
+  0%, 100% { box-shadow: var(--shadow); border-color: var(--border); }
+  35% {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent),
+                0 8px 40px color-mix(in srgb, var(--accent) 45%, transparent);
+    border-color: var(--accent);
+  }
+}
 .code-card-bar {
   display: flex; align-items: center; gap: 7px;
   padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -375,6 +385,7 @@ html[data-theme="dark"] #to-top { color: #06251f; }
   .hero::before, .hero::after, .brand-mark::after { animation: none; }
   .out-passed { animation: none; }
   #to-top { transition: none; }
+  .code-card.card-glow { animation: none; }
 }
 
 /* ===== Responsive ===== */

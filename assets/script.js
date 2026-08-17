@@ -146,6 +146,22 @@
       playRunOutput(runOutput, codeCard);
     });
 
+    // ロゴ(>_)はターミナルプロンプトの見た目なので、クリックで実際に「実行」する。
+    // 最上部で押しても必ず何かが起きるようにするため（見た目だけクリッカブルの防止）。
+    document.querySelector('.brand').addEventListener('click', function (event) {
+      event.preventDefault();
+      const isNearTop = window.scrollY < window.innerHeight * 0.3;
+      if (!isNearTop) {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      }
+      codeCard.classList.remove('card-glow');
+      void codeCard.offsetWidth; // アニメーションを最初から再生し直すためのリフロー
+      codeCard.classList.add('card-glow');
+      setTimeout(function () {
+        playRunOutput(runOutput, codeCard);
+      }, isNearTop ? 150 : 600);
+    });
+
     // ヒーローを過ぎたら「↑ 先頭へ戻る」ボタンを出す
     const toTopBtn = document.getElementById('to-top');
     toTopBtn.addEventListener('click', function () {
