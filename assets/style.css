@@ -265,8 +265,45 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
   background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
   padding: 6px 16px; font-size: 0.86rem; font-weight: 500;
   transition: border-color 0.2s, color 0.2s;
+  position: relative; cursor: default;
 }
-.chips li:hover { border-color: var(--accent); color: var(--accent); }
+.chips li:hover, .chips li:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+/* ホバー/フォーカスで実績ベースの解説をツールチップ表示 */
+.chips li[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 10px); left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: max-content; max-width: 260px;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 9px 13px; font-size: 0.78rem; font-weight: 400; line-height: 1.6;
+  opacity: 0; pointer-events: none; z-index: 20;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.chips li[data-tip]::before {
+  content: ""; position: absolute; bottom: calc(100% + 4px); left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px; height: 10px;
+  background: var(--surface);
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  opacity: 0; pointer-events: none; z-index: 21;
+  transition: opacity 0.18s ease;
+}
+.chips li[data-tip]:hover::after, .chips li[data-tip]:focus-visible::after,
+.chips li.tip-open::after {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+.chips li[data-tip]:hover::before, .chips li[data-tip]:focus-visible::before,
+.chips li.tip-open::before {
+  opacity: 1;
+}
+/* 行頭/行末のチップで画面外にはみ出さないよう、端寄せの逃げ */
+.chips li[data-tip]:first-child::after { left: 0; transform: translateX(0) translateY(4px); }
+.chips li[data-tip]:first-child:hover::after,
+.chips li[data-tip]:first-child:focus-visible::after,
+.chips li.tip-open:first-child::after { transform: translateX(0) translateY(0); }
 
 /* ===== Certifications ===== */
 .certs { margin-top: 44px; }
@@ -287,10 +324,6 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
   font-family: "JetBrains Mono", monospace; font-size: 0.8rem;
   color: var(--text-sub); flex-shrink: 0;
 }
-.cert.highlight { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
-.cert.highlight .cert-year { color: var(--accent); font-weight: 600; }
-.cert.highlight .cert-name { font-weight: 700; }
-
 @media (max-width: 700px) {
   .cert-list { grid-template-columns: 1fr; }
 }

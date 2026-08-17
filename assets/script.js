@@ -89,6 +89,23 @@
       playRunOutput(runOutput);
     });
 
+    // タッチ端末はホバーが効かないので、タップでツールチップを開閉する
+    document.querySelectorAll('.chips li[data-tip]').forEach(function (chip) {
+      chip.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const isOpen = chip.classList.contains('tip-open');
+        document.querySelectorAll('.chips li.tip-open').forEach(function (open) {
+          open.classList.remove('tip-open');
+        });
+        if (!isOpen) chip.classList.add('tip-open');
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.chips li.tip-open').forEach(function (open) {
+        open.classList.remove('tip-open');
+      });
+    });
+
     // 同じ親の中では 90ms ずつ遅らせて時差フェードインにする
     document.querySelectorAll('.cards, .practice-grid, .skill-groups').forEach(function (grid) {
       Array.prototype.forEach.call(grid.children, function (child, index) {

@@ -169,25 +169,47 @@
         <div class="skill-group reveal">
           <h3>Languages</h3>
           <ul class="chips">
-            <li>TypeScript</li><li>Python</li><li>GDScript</li><li>Dart</li><li>C#</li><li>Rust</li><li>JavaScript</li>
+            <li tabindex="0" data-tip="Webゲーム量産の主力言語。PixiJS / three.js 作品を strict 設定で20本以上開発">TypeScript</li>
+            <li tabindex="0" data-tip="テスト自動化とアセット生成ツールチェーンの常用言語">Python</li>
+            <li tabindex="0" data-tip="Godot 4 製の Steam 向け新作（配合RPG・タワーディフェンスなど）で使用">GDScript</li>
+            <li tabindex="0" data-tip="Flutter 製のハイパーカジュアルゲームとモバイルアプリで使用">Dart</li>
+            <li tabindex="0" data-tip="Unity 製の Steam 向け新作で使用。Mac / Windows 両ビルド対応">C#</li>
+            <li tabindex="0" data-tip="自作シークレットマネージャーなど CLI ツール開発で使用">Rust</li>
+            <li tabindex="0" data-tip="ビルド不要の静的サイトやアクセス計測スクリプトで使用（このサイトも）">JavaScript</li>
           </ul>
         </div>
         <div class="skill-group reveal">
           <h3>Game / Frontend</h3>
           <ul class="chips">
-            <li>PixiJS</li><li>three.js</li><li>Godot 4</li><li>Unity</li><li>Flutter / Flame</li><li>Next.js / React</li><li>PWA</li><li>Tauri</li>
+            <li tabindex="0" data-tip="2D Webゲームの主力レンダラ。v8 を20本以上で実戦投入">PixiJS</li>
+            <li tabindex="0" data-tip="3D作品で使用。3Dモデルをコードで生成するプロシージャル手法も">three.js</li>
+            <li tabindex="0" data-tip="Steam 向けデスクトップゲームのメインエンジン。GUT でのテストも運用">Godot 4</li>
+            <li tabindex="0" data-tip="Steam 向け新作で使用。自動テスト36件+両OSビルドを実機確認">Unity</li>
+            <li tabindex="0" data-tip="モバイル向けハイパーカジュアルゲームのモノレポ量産で使用">Flutter / Flame</li>
+            <li tabindex="0" data-tip="資格試験対策PWAを静的書き出しで6アプリ量産">Next.js / React</li>
+            <li tabindex="0" data-tip="オフライン対応・ホーム画面追加まで含めた設計を全Webアプリで標準化">PWA</li>
+            <li tabindex="0" data-tip="Webゲームのデスクトップ（Steam）版化に使用">Tauri</li>
           </ul>
         </div>
         <div class="skill-group reveal">
           <h3>Quality / Automation</h3>
           <ul class="chips">
-            <li>Vitest</li><li>Playwright</li><li>TDD</li><li>CI (GitHub Actions)</li><li>ボットシミュレーション</li><li>BFSソルバー検証</li>
+            <li tabindex="0" data-tip="全Webプロジェクトのユニットテスト標準。最大180件超を運用">Vitest</li>
+            <li tabindex="0" data-tip="実ブラウザでのUI進行テストとスクリーンショット自動化">Playwright</li>
+            <li tabindex="0" data-tip="Red → Green → Refactor を厳守。失敗するテストなしにコードを書かない">TDD</li>
+            <li tabindex="0" data-tip="push ごとにテスト・ビルド・データ整合性チェックを自動実行">CI (GitHub Actions)</li>
+            <li tabindex="0" data-tip="数千回の自動プレイでゲームバランスと戦略優位性を統計検証">ボットシミュレーション</li>
+            <li tabindex="0" data-tip="パズルの可解性や図鑑の到達性を探索アルゴリズムで機械証明">BFSソルバー検証</li>
           </ul>
         </div>
         <div class="skill-group reveal">
           <h3>Infra / Tools</h3>
           <ul class="chips">
-            <li>Cloudflare Pages / Workers</li><li>Vite</li><li>Git / GitHub</li><li>ComfyUI + SDXL（ローカル生成AI）</li><li>uv</li>
+            <li tabindex="0" data-tip="全Web作品のホスティング + Workers で自前アクセス計測基盤を構築">Cloudflare Pages / Workers</li>
+            <li tabindex="0" data-tip="全Webプロジェクトの標準ビルドツール">Vite</li>
+            <li tabindex="0" data-tip="issue 駆動開発・テンプレートリポジトリ運用・CI 連携">Git / GitHub</li>
+            <li tabindex="0" data-tip="ローカル生成AIでゲームアセットを量産。seed 固定でバイト一致の再現性を実証">ComfyUI + SDXL（ローカル生成AI）</li>
+            <li tabindex="0" data-tip="Python プロジェクトの標準パッケージマネージャ">uv</li>
           </ul>
         </div>
       </div>
@@ -199,7 +221,7 @@
             <span class="cert-year">2026</span>
             <span class="cert-name">色彩検定 3級</span>
           </li>
-          <li class="cert highlight">
+          <li class="cert">
             <span class="cert-year">2025</span>
             <span class="cert-name">JSTQB認定テスト技術者資格 Advanced Level — テストアナリスト</span>
           </li>
@@ -234,7 +256,6 @@
     <!-- Contact -->
     <section id="contact" class="section container alt">
       <h2><span class="section-no">04</span> Contact</h2>
-      <p class="section-desc">お気軽にご連絡ください。</p>
       <div class="contact-links reveal">
         <a class="btn primary" href="https://github.com/gzer0-dev" target="_blank" rel="noopener noreferrer">GitHub — gzer0-dev</a>
         <a class="btn ghost" href="https://bayfront-arcade.pages.dev/" target="_blank" rel="noopener noreferrer">作品ポータル — Bayfront Arcade</a>
