@@ -181,6 +181,36 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
 .out-dim { color: #6b7889; }
 .out-pass { color: #4ade80; font-weight: 600; }
 .out-hello { color: #2dd4bf; font-weight: 600; }
+.out-passed {
+  color: #4ade80; font-weight: 700;
+  animation: passed-pop 0.35s ease;
+  display: inline-block;
+}
+@keyframes passed-pop {
+  0% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Run 成功時の紙吹雪（JSが位置と軌道を決め、body直下に一時生成） */
+.confetti {
+  position: fixed; z-index: 999; pointer-events: none;
+  width: 8px; height: 12px; border-radius: 2px;
+}
+
+/* ===== ページ先頭へ戻る ===== */
+#to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--accent); color: #fff; border: none;
+  font-size: 1.15rem; font-weight: 700; cursor: pointer;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+  opacity: 0; transform: translateY(14px); pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+html[data-theme="dark"] #to-top { color: #06251f; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) #to-top { color: #06251f; } }
+#to-top.shown { opacity: 1; transform: translateY(0); pointer-events: auto; }
+#to-top:hover { transform: translateY(-3px); }
 
 .code-card pre {
   padding: 20px; overflow-x: auto;
@@ -343,6 +373,8 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
   .hero::before, .hero::after, .brand-mark::after { animation: none; }
+  .out-passed { animation: none; }
+  #to-top { transition: none; }
 }
 
 /* ===== Responsive ===== */
