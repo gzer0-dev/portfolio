@@ -146,20 +146,57 @@
       playRunOutput(runOutput, codeCard);
     });
 
-    // ロゴ(>_)はターミナルプロンプトの見た目なので、クリックで実際に「実行」する。
+    // ロゴ(>_)はプロンプトの見た目なので、クリックでその場に whoami をタイプする。
     // 最上部で押しても必ず何かが起きるようにするため（見た目だけクリッカブルの防止）。
+    const brandName = document.getElementById('brand-name');
+    let isWhoamiPlaying = false;
+
+    function typeText(el, text, msPerChar, onDone) {
+      let count = 0;
+      const interval = setInterval(function () {
+        count += 1;
+        el.textContent = text.slice(0, count);
+        if (count >= text.length) {
+          clearInterval(interval);
+          onDone();
+        }
+      }, msPerChar);
+    }
+
+    function eraseText(el, msPerChar, onDone) {
+      const interval = setInterval(function () {
+        el.textContent = el.textContent.slice(0, -1);
+        if (el.textContent.length === 0) {
+          clearInterval(interval);
+          onDone();
+        }
+      }, msPerChar);
+    }
+
+    function playWhoami() {
+      if (isWhoamiPlaying || prefersReducedMotion) return;
+      isWhoamiPlaying = true;
+      eraseText(brandName, 35, function () {
+        brandName.classList.add('brand-cmd');
+        typeText(brandName, 'whoami', 65, function () {
+          setTimeout(function () {
+            eraseText(brandName, 35, function () {
+              brandName.classList.remove('brand-cmd');
+              typeText(brandName, 'Go Itayama', 65, function () {
+                isWhoamiPlaying = false;
+              });
+            });
+          }, 550);
+        });
+      });
+    }
+
     document.querySelector('.brand').addEventListener('click', function (event) {
       event.preventDefault();
-      const isNearTop = window.scrollY < window.innerHeight * 0.3;
-      if (!isNearTop) {
+      if (window.scrollY > 0) {
         window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       }
-      codeCard.classList.remove('card-glow');
-      void codeCard.offsetWidth; // アニメーションを最初から再生し直すためのリフロー
-      codeCard.classList.add('card-glow');
-      setTimeout(function () {
-        playRunOutput(runOutput, codeCard);
-      }, isNearTop ? 150 : 600);
+      playWhoami();
     });
 
     // ヒーローを過ぎたら「↑ 先頭へ戻る」ボタンを出す

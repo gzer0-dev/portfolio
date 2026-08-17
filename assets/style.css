@@ -80,6 +80,9 @@ a:hover { text-decoration: underline; }
   animation: cursor-blink 1.1s steps(1) infinite;
 }
 @keyframes cursor-blink { 50% { opacity: 0; } }
+/* whoami タイプ中はコマンド入力らしくモノスペース+アクセント色にする */
+#brand-name { display: inline-block; min-width: 7.2em; text-align: left; }
+#brand-name.brand-cmd { font-family: "JetBrains Mono", monospace; color: var(--accent); font-weight: 600; }
 
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a { color: var(--text-sub); font-size: 0.92rem; font-weight: 500; }
@@ -152,16 +155,6 @@ html[data-theme="dark"] .btn.primary { color: #06251f; }
 .code-card {
   background: var(--code-bg); border-radius: 14px; box-shadow: var(--shadow);
   overflow: hidden; border: 1px solid var(--border);
-}
-/* ロゴクリックで Run するとき、視線をコードカードへ誘導する光のパルス */
-.code-card.card-glow { animation: card-glow 1.4s ease; }
-@keyframes card-glow {
-  0%, 100% { box-shadow: var(--shadow); border-color: var(--border); }
-  35% {
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent),
-                0 8px 40px color-mix(in srgb, var(--accent) 45%, transparent);
-    border-color: var(--accent);
-  }
 }
 .code-card-bar {
   display: flex; align-items: center; gap: 7px;
@@ -385,7 +378,6 @@ html[data-theme="dark"] #to-top { color: #06251f; }
   .hero::before, .hero::after, .brand-mark::after { animation: none; }
   .out-passed { animation: none; }
   #to-top { transition: none; }
-  .code-card.card-glow { animation: none; }
 }
 
 /* ===== Responsive ===== */
